@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:orientation="vertical">
+
+
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map2"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+
+        android:layout_height="0dp"
+        android:layout_weight="89"
+        tools:context=".Utils.MapsActivity2"
+        tools:layout="@layout/activity_maps2"/>
+
+    <TextView
+        android:id="@+id/textViewContactShare"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:text="*Note that the black NGO markers represent the NGOs serving in the post's vicinity and not the actual location of the NGOs"
+        android:textSize="10dp"
+        android:gravity="center_vertical"
+        android:paddingTop="2dp"
+        />
+
+    <Button
+        android:id="@+id/btnOK"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:theme="@style/MyButtonPastelStyle"
+        android:text="OK" />
+</LinearLayout>

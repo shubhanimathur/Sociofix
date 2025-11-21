@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    >
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="horizontal"
+    android:layout_weight="8">
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="80"
+        android:background="@color/theme_pastel"
+        android:gravity="center_vertical"
+        android:paddingLeft="30dp"
+        android:text="Index "
+        android:paddingTop="5dp"
+        android:textColor="@color/light_white"
+
+        android:paddingRight="20dp"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/close"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="20"
+        android:background="@color/theme_pastel"
+        android:gravity="center_vertical"
+        android:paddingLeft="30dp"
+
+        android:paddingTop="5dp"
+        android:textColor="@color/light_white"
+        android:drawableEnd="@drawable/ic_close"
+        android:drawableTint="@color/light_white"
+        android:paddingRight="20dp"
+        android:textSize="18dp"
+        android:textStyle="bold" />
+
+</LinearLayout>
+
+
+
+
+
+    <TextView
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:background="@color/theme_pastel"
+        android:gravity="top"
+        android:paddingLeft="30dp"
+        android:text="yutikapatel6june@gmail.com "
+        android:textColor="@color/light_white"
+        android:textSize="11dp"
+        />
+
+
+    <LinearLayout
+        android:paddingHorizontal="17dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:weightSum="100"
+
+        android:layout_weight="93"
+        >
+        <TextView
+            android:id="@+id/blank"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:layout_weight="2"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:weightSum="100"
+
+            android:layout_weight="20"
+            >
+            <TextView
+                android:id="@+id/Celebrate"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Celebrating the Good Work !"
+                android:layout_weight="50"
+                android:drawableEnd="@drawable/ic_celebrate"
+                android:drawableTint="@color/theme_pastel"
+                android:paddingHorizontal="4dp"
+                android:textColor="@color/theme_pastel"
+                android:textSize="15dp"
+
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DBDBDB"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+
+                    >
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/toCelebrate"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="50"
+                android:gravity="center_vertical"
+
+
+                android:paddingHorizontal="4dp"
+                android:text="Check out the Impact Makers"
+                android:textColor="#ACA8A8"
+                android:textSize="15dp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:weightSum="100"
+
+            android:layout_weight="25"
+            >
+            <TextView
+                android:id="@+id/SearchOrganizations"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+            android:drawableEnd="@drawable/ic_person_search"
+                android:drawableTint="@color/theme_pastel"
+                android:text="Search Organizations"
+                android:layout_weight="40"
+                android:paddingHorizontal="4dp"
+                android:textColor="@color/theme_pastel"
+                android:textSize="15dp"
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DBDBDB"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+
+                    >
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/toSearchOrganizations"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Exploring diverse organizations across various sectors and locations !"
+                android:layout_weight="60"
+                android:paddingHorizontal="4dp"
+                android:textColor="#ACA8A8"
+                android:textSize="15dp"
+                android:lineSpacingExtra="10dp"
+                android:gravity="center_vertical"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            android:weightSum="100"
+
+            android:layout_weight="20"
+            >
+            <TextView
+                android:id="@+id/Settings"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Settings"
+                android:layout_weight="40"
+                android:drawableEnd="@drawable/ic_baseline_settings_24"
+                android:drawableTint="@color/theme_pastel"
+                android:paddingHorizontal="4dp"
+                android:textColor="@color/theme_pastel"
+                android:textSize="15dp"
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginTop="2dp"
+                android:layout_weight="1"
+
+                android:orientation="vertical">
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#DBDBDB"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+
+                    >
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <TextView
+                android:id="@+id/toSettings"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:text="Settings"
+                android:layout_weight="50"
+
+
+                android:paddingHorizontal="4dp"
+                android:textColor="#ACA8A8"
+                android:textSize="15dp"
+                android:gravity="center_vertical"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+

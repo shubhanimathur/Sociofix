@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="10dp"
+
+        >
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/idNestedSV"
+            android:layout_weight="100"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                android:background="@drawable/border"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/Logo"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:paddingTop="2dp"
+android:background="@color/theme_pastel"
+                    android:gravity="center"
+                    android:text="Received Help ..."
+                    android:textColor="@color/light_white"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tag_line"
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+android:background="@color/theme_pastel_light"
+                    android:paddingTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:text="*This help is offered by an individual user.\nContact the user for receiving help!"
+                    android:textColor="@color/my_dark_grey"
+                    android:lineSpacingExtra="6dp"
+                    android:textSize="8dp"
+                    android:textStyle="normal" />
+                <TextView
+                    android:id="@+id/blank_space"
+                    android:layout_width="match_parent"
+                    android:layout_height="10dp"
+                    android:paddingTop="5dp"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/my_dark_grey"
+                    android:lineSpacingExtra="6dp"
+                    android:textSize="8dp"
+                    android:textStyle="normal" />
+                <Button
+                    android:id="@+id/btnPost"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+
+                    android:text="Check your Post"
+                    android:textAllCaps="false"
+                    android:theme="@style/MyButtonPastelStyle"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:text="Name"
+
+                    android:paddingHorizontal="4dp"
+                    android:textColor="@color/my_dark_grey"
+                    android:textSize="14dp"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/etName"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:ems="10"
+                    android:hint="Enter your Name"
+                    android:inputType="textPersonName"
+                    android:textSize="12dp"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:gravity="center_vertical"
+                    android:scrollHorizontally="true"
+                    android:background="@drawable/border" />
+
+                <TextView
+                    android:id="@+id/emailAdd"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:text="Email Address"
+                    android:paddingHorizontal="4dp"
+                    android:textColor="#585757"
+                    android:textSize="14dp"
+
+                    android:gravity="center_vertical"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/etEmailAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/border"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:maxLines="1"
+                    android:ellipsize="end"
+                    android:scrollHorizontally="true"
+                    android:hint="Enter your Email-ID"
+                    android:gravity="center_vertical"
+                    android:textSize="12dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/Mobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:gravity="center_vertical"
+                    android:paddingHorizontal="4dp"
+                    android:text="Mobile"
+                    android:textColor="#585757"
+
+                    android:textSize="14dp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/etMobile"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+                    android:background="@drawable/border"
+                    android:ems="10"
+                    android:inputType="textEmailAddress"
+                    android:hint="Enter your Mobile"
+                    android:gravity="center_vertical"
+                    android:textSize="12dp"
+
+                    />
+
+                <TextView
+                    android:id="@+id/description"
+                    android:layout_width="match_parent"
+                    android:layout_height="55dp"
+
+                    android:text="Description"
+
+                    android:paddingHorizontal="4dp"
+                    android:textColor="@color/my_dark_grey"
+                    android:textSize="14dp"
+                    android:gravity="center_vertical"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/etDescription"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:lineSpacingExtra="10dp"
+                    android:hint="How you want to help ?"
+
+                    android:gravity="center_vertical"
+                    android:textSize="12dp"
+                    android:paddingVertical="30dp"
+                    android:background="@drawable/border" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/textViewAcceptInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+
+                    android:text="*Only accepting the help will not update the post status to accepted. The post will be open for organizations help as well. "
+                    android:textSize="8dp"
+                    android:lineSpacingExtra="8dp"
+                    android:paddingHorizontal="7dp"
+                    android:gravity="center_vertical"
+                    android:paddingTop="2dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnAccept"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:theme="@style/MyButtonPastelStyle"
+                    android:text="Accept!"
+                    android:textAllCaps="false"
+
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_gravity="center"/>
+
+                <TextView
+                    android:id="@+id/textViewAcceptAndCloseInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+
+                    android:text="*Accepting and closing will update the post status to SOLVED. The post will NOT be open for any organization's help. "
+                    android:textSize="8dp"
+                    android:lineSpacingExtra="8dp"
+                    android:paddingHorizontal="7dp"
+                    android:gravity="center_vertical"
+                    android:paddingTop="2dp"
+                    />
+
+                <Button
+                    android:id="@+id/btnAcceptAndClose"
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+
+                    android:text="Accept and Close!"
+                    android:textAllCaps="false"
+                    android:theme="@style/MyButtonPastelStyle"
+                    android:textStyle="bold"
+                    android:textSize="15dp"
+                    android:layout_gravity="center"/>
+
+
+
+            </LinearLayout>
+
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+
+
+    </LinearLayout>
+</RelativeLayout>

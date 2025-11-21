@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+android:background="@drawable/heart_collage15"
+    tools:context=".settings.AboutUs">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
+
+        >
+
+        <TextView
+            android:id="@+id/about_us_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:gravity="center"
+            android:text="About Us"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+
+                    >
+                    <TextView
+                        android:id="@+id/Introduction"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Introduction"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textIntro"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/black"
+                        android:lineSpacingExtra="1.5pt"
+                        android:text="Welcome to SocioFix, the platform that aims to bridge the gap between social problems and social workers. Our app is designed to make it easy for individuals to report social issues and for NGOs to respond to them. NGOs can also use our app to post information about their upcoming events and drives, connecting them with individuals who are interested in supporting their cause. Our team is passionate about making a positive impact on society and we're excited to bring this app to life."
+                        android:textSize="15dp"
+                        android:gravity="center"
+                        />
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+
+                    >
+                    <TextView
+                        android:id="@+id/Mission"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Our Mission"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textMission"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/black"
+                        android:text="At SocioFix, our mission is to empower individuals to report social issues and to connect them with the NGOs that can help. We believe that by leveraging technology, we can make it easier for NGOs to respond to social issues and for individuals to support their work. Our goal is to create a community of socially conscious individuals who are willing to take action to make the world a better place. In addition, we want to help NGOs gain more support by providing a platform for them to share information about their upcoming events and drives. With SocioFix, we hope to create a more connected and collaborative social sector that can solve problems quickly and effectively."
+                        android:textSize="15dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:gravity="center"
+                        />
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+
+                    >
+                    <TextView
+                        android:id="@+id/Vision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Our Vision"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textVision"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/black"
+                        android:text="We envision a world where social problems are reported and solved speedily and efficiently. We want to make it easy for individuals to take action and for NGOs to get the support they need. With SocioFix, we hope to create a platform that fosters collaboration and innovation in the social sector. We believe that by working together, we can create a better future for everyone. In addition, we want to help NGOs gain more support by providing a platform for them to share information about their upcoming events and drives. By doing so, we hope to create a more engaged and supportive community that can drive meaningful change."
+                        android:textSize="15dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:gravity="center"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="20dp"
+
+                    >
+                    <TextView
+                        android:id="@+id/Contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Contact Us"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/black"
+                        android:text="Email us at - sociofix2022@gmail.com"
+                        android:textSize="15dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:gravity="center"
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
+
+

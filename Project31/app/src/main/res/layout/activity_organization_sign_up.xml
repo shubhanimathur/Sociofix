@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    android:weightSum="100"-->
+<!--    tools:context=".authentication.OrganizationSignUp">-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:orientation="vertical"-->
+<!--        android:weightSum="100"-->
+<!--        android:layout_weight="75"-->
+<!--        >-->
+<!--        <TextView-->
+<!--            android:id="@+id/signup_title"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="11"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Organization Sign Up"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="30dp"-->
+<!--            android:textStyle="bold" />-->
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/password"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="5"-->
+<!--            android:text="  Password"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/etPasswordLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_margin="4dp"-->
+<!--            android:layout_weight="9"-->
+<!--            app:passwordToggleEnabled="true"-->
+<!--            android:hint="Enter Password"-->
+<!--            >-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/etPass"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:background="@drawable/edit_text_border"-->
+<!--                />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/blank2"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="3"-->
+<!--            android:text=""-->
+<!--            />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/RepeatPass"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="5"-->
+<!--            android:text="  Confirm Password"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="20dp"-->
+<!--            android:textStyle="bold" />-->
+
+<!--        <com.google.android.material.textfield.TextInputLayout-->
+<!--            android:id="@+id/etConfirmPasswordLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_margin="4dp"-->
+<!--            android:layout_weight="9"-->
+<!--            app:passwordToggleEnabled="true"-->
+<!--            android:hint="Re-enter Password"-->
+<!--            >-->
+
+<!--            <com.google.android.material.textfield.TextInputEditText-->
+<!--                android:id="@+id/etRepeatPass"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:inputType="textPassword"-->
+<!--                android:background="@drawable/edit_text_border"-->
+<!--                />-->
+<!--        </com.google.android.material.textfield.TextInputLayout>-->
+<!--        <TextView-->
+<!--            android:id="@+id/blank3"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="3"-->
+<!--            android:text=""-->
+<!--            />-->
+<!--        <Button-->
+<!--            android:id="@+id/btnSignUp"-->
+<!--            android:layout_width="200dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="10"-->
+<!--            android:text="SIGN UP"-->
+<!--            android:textStyle="bold"-->
+<!--            android:layout_gravity="center"/>-->
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:orientation="vertical"-->
+<!--        android:weightSum="100"-->
+<!--        android:layout_weight="35">-->
+
+<!--        <CheckBox-->
+<!--            android:id="@+id/cbAgree"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="20"-->
+<!--            android:text="Agree to Terms and Conditions"-->
+<!--            />-->
+
+<!--        <EditText-->
+<!--            android:id="@+id/etConfCode"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_weight="30"-->
+<!--            android:ems="10"-->
+<!--            android:hint="Confirmation Code"-->
+<!--            android:inputType="number"-->
+<!--            />-->
+
+<!--        <Button-->
+<!--            android:id="@+id/btnVerify"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="30"-->
+<!--            android:text="Verify"-->
+
+<!--            />-->
+<!--    </LinearLayout>-->
+
+<!--</LinearLayout>-->
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+android:weightSum="100"
+android:background="@drawable/border"
+android:layout_marginHorizontal="30dp"
+
+tools:context=".authentication.OrganizationSignUp">
+
+
+    <TextView
+        android:id="@+id/signup_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:background="@color/theme_pastel"
+        android:gravity="center"
+        android:text="SIGN UP"
+        android:textColor="@color/light_white"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:gravity="center"
+    android:layout_weight="40"
+    >
+
+    <TextView
+        android:id="@+id/strongPassMsg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="17"
+android:paddingHorizontal="5dp"
+        android:gravity="center"
+        android:text="**Please create atleast 7 characters long password (Containing atleast - 1 uppercase, 1 special symbol [@,* ,.] and one number)"
+        android:textColor="@color/grey"
+        android:textSize="10dp"
+        />
+    <TextView
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Password"
+        android:layout_weight="20"
+        android:paddingHorizontal="4dp"
+        android:textColor="@color/my_dark_grey"
+        android:textSize="15dp"
+        android:gravity="bottom"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etPasswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+
+        app:passwordToggleEnabled="true"
+        android:hint="Enter Password"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etPass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:textSize="13dp"
+            android:gravity="center_vertical"
+            android:background="@drawable/border"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+
+    <TextView
+        android:id="@+id/RepeatPass"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:text="Confirm Password"
+        android:layout_weight="15"
+        android:textColor="@color/my_dark_grey"
+        android:textSize="15dp"
+        android:gravity="bottom"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/etConfirmPasswordLayout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="20"
+        app:passwordToggleEnabled="true"
+
+        android:hint="Re-enter Password"
+        >
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etRepeatPass"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:inputType="textPassword"
+            android:textSize="13dp"
+            android:gravity="center_vertical"
+
+            android:background="@drawable/border"
+            />
+    </com.google.android.material.textfield.TextInputLayout>
+
+
+</LinearLayout>
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:gravity="top"
+    android:layout_weight="30">
+    <Button
+        android:id="@+id/btnSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25"
+        android:text="SIGN UP"
+        android:textSize="13dp"
+        android:theme="@style/MyButtonPastelStyle"
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+    </TextView>
+    <CheckBox
+        android:id="@+id/cbAgree"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:layout_gravity="center_vertical"
+        android:paddingLeft="0dp"
+        android:textSize="10dp"
+        android:buttonTint="@color/my_dark_grey"
+
+        android:paddingStart="5dp"
+        android:text="Agree to Terms and Conditions"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+    </TextView>
+    <EditText
+        android:id="@+id/etConfCode"
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="25"
+        android:ems="10"
+        android:hint="Confirmation Code"
+        android:textSize="15dp"
+        android:inputType="number"
+        android:background="@drawable/border"
+        />
+
+    <Button
+        android:id="@+id/btnVerify"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="25"
+        android:text="Verify"
+        android:theme="@style/MyButtonPastelStyle"
+        android:textStyle="bold"
+        />
+</LinearLayout>
+
+</LinearLayout>

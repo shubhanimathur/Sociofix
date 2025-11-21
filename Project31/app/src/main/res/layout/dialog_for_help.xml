@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    >
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:paddingHorizontal="15dp"
+    android:layout_marginVertical="10dp"
+
+   >
+
+
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/idNestedSV"
+        android:layout_weight="100"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:background="@drawable/border"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/Logo"
+                android:layout_width="match_parent"
+                android:layout_height="140dp"
+                android:paddingTop="50dp"
+                android:background="@color/theme_pastel"
+                android:gravity="center"
+                android:text="Let's Help ..."
+                android:textColor="@color/light_white"
+                android:textSize="20dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tag_line"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/theme_pastel_light"
+                android:paddingTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="It starts with us !"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="italic" />
+
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+
+                android:text="Name"
+
+                android:paddingHorizontal="4dp"
+                android:textColor="@color/my_dark_grey"
+                android:textSize="14dp"
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/userName"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:ems="10"
+                android:gravity="center_vertical"
+                android:text="Failed to you fetch your name"
+                android:inputType="textPersonName"
+                android:textSize="12dp"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:scrollHorizontally="true"
+                android:background="@drawable/border" />
+
+            <TextView
+                android:id="@+id/emailAdd"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+
+                android:text="Email Address"
+                android:paddingHorizontal="4dp"
+                android:textColor="#585757"
+                android:textSize="14dp"
+
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/userEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/border"
+                android:gravity="center_vertical"
+                android:text="Failed to you fetch your email id"
+                android:inputType="textEmailAddress"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:scrollHorizontally="true"
+                android:hint="Enter your Email-ID"
+                android:textSize="12dp"
+
+                />
+
+            <TextView
+                android:id="@+id/Mobile"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:gravity="center_vertical"
+                android:paddingHorizontal="4dp"
+                android:text="Mobile"
+                android:textColor="#585757"
+
+                android:textSize="14dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/userMobile"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:background="@drawable/border"
+                android:text="Failed to you fetch your mobile"
+                android:gravity="center_vertical"
+                android:inputType="textEmailAddress"
+                android:hint="Enter your Mobile"
+                android:textSize="12dp"
+
+                />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+
+                android:text="Description"
+
+                android:paddingHorizontal="4dp"
+                android:textColor="@color/my_dark_grey"
+                android:textSize="14dp"
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:hint="How you want to help ?"
+                android:lineSpacingExtra="10dp"
+                android:gravity="center_vertical"
+                android:textSize="12dp"
+                android:paddingVertical="30dp"
+                android:background="@drawable/border" />
+
+
+            <TextView
+                android:id="@+id/textViewContactShare"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+
+                android:text="Your contact will be shared with the user of the post so that they can contact you."
+                android:textSize="8dp"
+                android:gravity="center_vertical"
+                android:paddingTop="2dp"
+                />
+
+            <Button
+                android:id="@+id/btnHelp"
+                android:layout_width="match_parent"
+                android:layout_height="60dp"
+                android:text="Help!"
+                android:theme="@style/MyButtonPastelStyle"
+                android:textAllCaps="false"
+
+                android:textStyle="bold"
+                android:textSize="15dp"
+                android:layout_gravity="center"/>
+
+
+
+        </LinearLayout>
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+
+
+
+
+
+
+</LinearLayout>
+</RelativeLayout>

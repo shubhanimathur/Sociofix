@@ -1,0 +1,1079 @@
+package com.example.project31.post;
+
+import androidx.activity.result.ActivityResult;
+import androidx.activity.result.ActivityResultCallback;
+import androidx.activity.result.ActivityResultLauncher;
+import androidx.activity.result.contract.ActivityResultContracts;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.app.Activity;
+import android.app.DatePickerDialog;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Color;
+import android.graphics.Matrix;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.media.ExifInterface;
+import android.net.Uri;
+import android.os.Build;
+import android.os.Bundle;
+import android.os.CountDownTimer;
+import android.os.Environment;
+import android.provider.MediaStore;
+import android.text.Editable;
+import android.text.TextWatcher;
+import java.util.Base64;
+import android.view.Gravity;
+import android.view.View;
+
+import android.view.ViewGroup;
+import android.view.Window;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.DatePicker;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.ListView;
+import android.widget.ProgressBar;
+import android.widget.TextView;
+import android.widget.TimePicker;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.DataSource;
+import com.bumptech.glide.load.engine.GlideException;
+import com.bumptech.glide.request.RequestListener;
+import com.bumptech.glide.request.target.Target;
+import com.example.project31.Dto.FilterDto;
+import com.example.project31.Dto.NotificationDto;
+import com.example.project31.Dto.PostDto;
+import com.example.project31.Dto.SectorDto;
+import com.example.project31.Dto.LocationDto;
+import com.example.project31.Dto.TalukaDto;
+import com.example.project31.MainActivity;
+import com.example.project31.R;
+import com.example.project31.Utils.Constant;
+import com.example.project31.Utils.MapsActivity;
+import com.example.project31.Utils.MapsActivity2;
+import com.example.project31.Utils.SharedPreferencesHelper;
+import com.example.project31.authentication.OrganizationSignUpDetails;
+import com.example.project31.drivePage.DrivePage;
+import com.example.project31.homePage.HomePage;
+import com.example.project31.notification.Notification;
+import com.example.project31.profile.Profile;
+import com.example.project31.profile.ProfileOrganization;
+import com.example.project31.retrofit.PostApi;
+import com.example.project31.retrofit.RetrofitService;
+import com.example.project31.retrofit.SectorApi;
+import com.example.project31.retrofit.TextFilterApi;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.zip.Deflater;
+import java.util.zip.DeflaterOutputStream;
+import java.util.zip.GZIPOutputStream;
+//
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+
+
+public class CreatePost extends AppCompatActivity {
+
+    EditText txtTime,txtDate;
+    ImageView post_image;
+    TextView myImageViewText, tvLocationDisplay;
+    Button upload;
+    EditText editTextDescription;
+    LocationDto locationDto;
+
+    String byteArrayToString;
+
+    Dialog dialogWait;
+
+    TextView sector_tv;
+    Dialog dialog;
+
+    PostApi postApi;
+
+    PostApi specialUploadApi;
+    SectorApi sectorApi;
+    PostDto postDto;
+
+    LocalDate date ;
+    LocalDateTime timestamp;
+    String userEmail,address;
+    List<String> sectorNames;
+    Set<NotificationDto> latestPostNoti;
+    TalukaDto latestPostTaluka;
+
+    byte[] bitmapdata;
+    Bitmap bitmap;
+    ProgressBar progressBar;
+
+    Integer fromCamera=0;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+//
+
+        super.onCreate(savedInstanceState);
+        overridePendingTransition(R.anim.slide_in_bottom, R.anim.slide_out_top);
+        setContentView(R.layout.activity_create_post);
+
+        TextView home=findViewById(R.id.home);
+        TextView drives= findViewById(R.id.drives);
+        TextView add_post=findViewById(R.id.add_post);
+        TextView notification= findViewById(R.id.notification);
+        TextView profile_tab= findViewById(R.id.profile_tab);
+
+
+        userEmail= SharedPreferencesHelper.getInstance(getApplicationContext()).getUserEmail();
+        String userOrOrganization = SharedPreferencesHelper.getInstance(getApplicationContext()).getOrganization();
+        home.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreatePost.this, HomePage.class);
+                startActivity(intent);
+            }
+        });
+        drives.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreatePost.this, DrivePage.class);
+                startActivity(intent);;
+            }
+        });
+        add_post.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(SharedPreferencesHelper.getInstance(getApplicationContext()).getOrganization().equals("0")){
+                    Intent intent = new Intent(CreatePost.this, CreatePost.class);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(CreatePost.this, CreateDrive.class);
+                    startActivity(intent);
+                }
+            }
+        });
+        notification.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreatePost.this, Notification.class);
+                startActivity(intent);
+            }
+        });
+        profile_tab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("to_user_id", userEmail);
+                if(userOrOrganization.equals("0")){
+                    Intent intent = new Intent(CreatePost.this, Profile.class);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }else{
+                    Intent intent = new Intent(CreatePost.this, ProfileOrganization.class);
+                    intent.putExtras(bundle);
+                    startActivity(intent);
+                }
+
+            }
+        });
+
+
+        txtTime=(EditText)findViewById(R.id.selectTime);
+        txtDate = (EditText)findViewById(R.id.selectDate);
+        post_image = findViewById(R.id.post_image);
+        myImageViewText= (TextView)findViewById(R.id.myImageViewText);
+
+        tvLocationDisplay= (TextView)findViewById(R.id.tvLocationDisplay);
+
+        Context context = getApplicationContext();
+        upload = (Button)findViewById(R.id.upload);
+        editTextDescription= (EditText) findViewById(R.id.editTextDescription);
+        RetrofitService rs = new RetrofitService();
+        //sector_spinner =(Spinner) findViewById(R.id.sector_spinner);
+
+        RetrofitService rsUploadPost = new RetrofitService("Long upload","long upload");
+        specialUploadApi = rsUploadPost.getRetrofit().create(PostApi.class);
+        sector_tv=  findViewById(R.id.sector_tv);
+       postApi = rs.getRetrofit().create(PostApi.class);
+       sectorApi = rs.getRetrofit().create(SectorApi.class);
+
+        progressBar = findViewById(R.id.progressBar);
+
+
+
+
+        Call<List<String>> call = sectorApi.getSectorNames();
+        call.enqueue(new Callback<List<String>>() {
+            @Override
+            public void onResponse(Call<List<String>> call, Response<List<String>> response) {
+                sectorNames = response.body();
+               // Toast.makeText(getApplicationContext(),"on response",Toast.LENGTH_SHORT).show();
+
+            }
+
+            @Override
+            public void onFailure(Call<List<String>> call, Throwable t) {
+                Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "Error occurred in spinner",t);
+               // Toast.makeText(getApplicationContext(),"on error",Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+        sector_tv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Initialize dialog
+         //       Toast.makeText(getApplicationContext(),"in sector view"+sectorNames.get(0),Toast.LENGTH_SHORT).show();
+                dialog=new Dialog(CreatePost.this);
+
+                dialog.setContentView(R.layout.dialog_seachable_single_spinner);
+
+                dialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT,ViewGroup.LayoutParams.MATCH_PARENT);
+                dialog.getWindow().setGravity(Gravity.CENTER);
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+                dialog.show();
+
+                EditText editText=dialog.findViewById(R.id.edit_text);
+                ListView listView=dialog.findViewById(R.id.list_view);
+
+                Button done = dialog.findViewById(R.id.done);
+               // MultiSelectSearchAdapter adapter = new MultiSelectSearchAdapter(getApplicationContext(),R.layout.list_item,sectorNames);
+                ArrayAdapter<String> adapter=new ArrayAdapter<>(getApplicationContext(),android.R.layout.simple_list_item_1,sectorNames);
+                listView.setAdapter(adapter);
+                listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+                listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
+
+                editText.addTextChangedListener(new TextWatcher() {
+                    @Override
+                    public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+                    }
+
+                    @Override
+                    public void onTextChanged(CharSequence s, int start, int before, int count) {
+                        adapter.getFilter().filter(s);
+                    }
+
+                    @Override
+                    public void afterTextChanged(Editable s) {
+
+                    }
+                });
+
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        // when item selected from list
+                        // set selected item on textView
+                        sector_tv.setText(adapter.getItem(position));
+
+                        // Dismiss dialog
+                        dialog.dismiss();
+                    }
+                });
+
+
+
+            }
+        });
+
+
+
+        ActivityResultLauncher<Intent> onAcitvityResult= registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+            @Override
+            public void onActivityResult(ActivityResult result) {
+                if (result.getResultCode() == Activity.RESULT_OK) {
+                 //   Toast.makeText(getApplicationContext(),"in acitivity result launcher",Toast.LENGTH_SHORT).show();
+                    Intent intent = result.getData();
+                    if (intent.hasExtra("Bitmap")) {
+
+                        fromCamera=1;
+
+                        bitmap = (Bitmap) intent.getParcelableExtra("Bitmap");
+                           bitmap = scaleBitmap(bitmap);
+                        post_image.setImageBitmap(bitmap);
+                        myImageViewText.setVisibility(TextView.GONE);
+
+
+
+//                        Matrix matrix = new Matrix();
+//                        bitmap = Bitmap.createBitmap(bitmap, 0, 0, 500, 500, matrix, true);
+
+                        ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                        bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+
+                        bitmapdata = bos.toByteArray();
+
+
+
+                    }
+                    if(intent.hasExtra("Uri")){
+                        fromCamera=0;
+
+
+                        progressBar.setVisibility(View.VISIBLE);
+                        Bundle bundle = intent.getExtras();
+                        String Uri = bundle.getString("Uri");
+
+                        new CountDownTimer(1000, 1000) {
+                            public void onTick(long millisUntilFinished) {
+
+
+                            }
+                            // When the task is over it will print 00:00:00 there
+                            public void onFinish() {
+
+                              //  Toast.makeText(getApplicationContext(),"loading img",Toast.LENGTH_SHORT).show();
+                                Glide.with(getApplicationContext())
+                                        .load(Uri)
+                                        .listener(new RequestListener<Drawable>() {
+                                            @Override
+                                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+                                              //  Toast.makeText(getApplicationContext(),"h "+"Failed",Toast.LENGTH_SHORT).show();
+                                                return false;
+                                            }
+
+                                            @Override
+                                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+                                              //  Toast.makeText(getApplicationContext(),"h "+"Success",Toast.LENGTH_SHORT).show();
+                                                return false;
+                                            }
+                                        })
+                                        .into(post_image);
+                                progressBar.setVisibility(View.GONE);
+                             //   Toast.makeText(getApplicationContext(),"done loading img!!!!!",Toast.LENGTH_SHORT).show();
+                                bitmap = convertURL(Uri,500,500);
+                             //   post_image.setImageBitmap(bitmap);
+                               // Boolean isNull= bitmap==null;
+                                if(bitmap==null){
+                                    return;
+                                }
+                          //      Toast.makeText(getApplicationContext(), "Scaled bitmap size: " + bitmap.getByteCount() / 1024 + "KB", Toast.LENGTH_SHORT).show();
+
+                                Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "Scaled bitmap size: " + bitmap.getByteCount() / 1024 + "KB");
+
+
+                                Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "bitmap " +bitmap+" ");
+                                myImageViewText.setVisibility(TextView.GONE);
+
+
+                               // post_image.setImageBitmap(bitmap);
+                                progressBar.setVisibility(View.GONE);
+                                ByteArrayOutputStream bos = new ByteArrayOutputStream();
+                                bitmap.compress(Bitmap.CompressFormat.PNG, 100, bos);
+                                bitmapdata = bos.toByteArray();
+
+                                Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "byte array bitmap data size " +bitmapdata.length / 1024 + "KB");
+
+
+
+                            }}.start();
+
+
+
+
+
+                      //  Toast.makeText(getApplicationContext(),"done conversions!!!!!",Toast.LENGTH_SHORT).show();
+
+                    }
+                    if (intent.hasExtra("address")) {
+                        Bundle bundle = intent.getExtras();
+                        address = bundle.getString("address");
+                        tvLocationDisplay.setText(address);
+
+                    }
+                    if (intent.hasExtra("LocationDto")) {
+
+                        locationDto = (LocationDto) intent.getSerializableExtra("LocationDto");
+                      //  Toast.makeText(getApplicationContext(),"locaton dto"+ locationDto.getLatitude(),Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            }
+        });
+
+
+//        ActivityResultLauncher<Intent> onAcitvityResultLocation= registerForActivityResult(new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+//            @Override
+//            public void onActivityResult(ActivityResult result) {
+//                if (result.getResultCode() == Activity.RESULT_OK) {
+//                    Toast.makeText(getApplicationContext(),"previous screen",Toast.LENGTH_SHORT).show();
+//                    Intent intent = result.getData();
+//
+//                    if (intent.hasExtra("address")) {
+//                        Bundle bundle = intent.getExtras();
+//                        String address = bundle.getString("address");
+//                        tvLocationDisplay.setText(address);
+//
+//                    }
+//                    if (intent.hasExtra("LocationDto")) {
+//
+////                        locationDto= (LocationDto) getIntent().getSerializableExtra("LocationDto");
+//                        locationDto = (LocationDto) intent.getSerializableExtra("LocationDto");
+//                        Toast.makeText(getApplicationContext(),"locaton dto"+ locationDto,Toast.LENGTH_SHORT).show();
+//
+//                    }
+//                }
+//            }
+//        });
+
+
+
+
+        ImageView post_image = (ImageView) findViewById(R.id.post_image);
+        post_image.setClickable(true);
+        post_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent galleryScreen = new Intent(CreatePost.this, Gallery_camera.class);
+                //intent.putExtra("PostDto",postDto);
+//                startActivityF
+//                startActivity(intent);
+                onAcitvityResult.launch(galleryScreen);
+            }
+        });
+
+        tvLocationDisplay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent locationScreen = new Intent(CreatePost.this, MapsActivity.class);
+                onAcitvityResult.launch(locationScreen);
+            }
+        });
+
+        upload.setOnClickListener(new View.OnClickListener() {
+
+
+            @Override
+            public void onClick(View view) {
+
+                view.setClickable(false);
+                setTheme(android.R.style.Theme);
+
+
+
+                if(locationDto!=null && locationDto.getLatitude()!=null && locationDto.getLongitude()!=null &&
+                        editTextDescription!=null && editTextDescription.getText().length()>0 && sector_tv!=null
+                          && bitmapdata!=null)
+                {
+
+
+                }else{
+
+                    Toast.makeText(getApplicationContext(),"Please check for empty fields",Toast.LENGTH_SHORT).show();
+                    return;
+
+                }
+
+
+
+                if(fromCamera==1){
+
+                    try {
+                        saveToGallery(bitmap);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+
+
+
+
+
+
+          //          Toast.makeText(getApplicationContext(), "in upload" + timestamp, Toast.LENGTH_SHORT).show();
+                    //new LocationDto(14.365,4578.45)
+                    locationDto.setLandmark(tvLocationDisplay.getText().toString());
+
+                    postDto = new PostDto(locationDto, "" + editTextDescription.getText(), new SectorDto((String) sector_tv.getText()), timestamp, userEmail, null);
+//                    String encodedImage = Base64.encodeToString(bitmapdata, Base64.DEFAULT);
+                    String encodedImage =  Base64.getEncoder().encodeToString(bitmapdata);
+                    postDto.setStringOfImage(encodedImage);
+
+
+
+                    if (Constant.censoring.equals("yes")) {
+
+                        RetrofitService rsNeutrino = new RetrofitService(1);
+                        TextFilterApi service = rsNeutrino.getRetrofitNeutrino().create(TextFilterApi.class);
+                        FilterDto filterDto = new FilterDto(postDto.getDescription(), "*", "strict");
+
+                        Call<Object> call = service.filterData(TextFilterApi.filterUserId, TextFilterApi.filterApiKey, filterDto);
+                        call.enqueue(new Callback<Object>() {
+                            @Override
+                            public void onResponse(Call<Object> call, Response<Object> response) {
+
+                                if (response.isSuccessful() && response.body() != null) {
+
+                                    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+                                    String json = gson.toJson(response.body());
+                                    //Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, "Response Body "+json);
+                                    JsonObject jsonObject = JsonParser.parseString(json).getAsJsonObject();
+                                    if (jsonObject.has("censored-content")) {
+                                        String censoredContent = jsonObject.get("censored-content").getAsString();
+                                        Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, "json object censored-content " + censoredContent);
+
+                                        postDto.setCensoredDescription(censoredContent);
+                                        dialogWait = new Dialog(view.getContext());
+
+                                        //dialog.setContentView(R.layout.dialog_hq_location);
+                                        dialogWait.setContentView(R.layout.dialog_wait);
+
+                                        dialogWait.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                                        dialogWait.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                                        dialogWait.getWindow().setGravity(Gravity.CENTER);
+                                        dialogWait.show();
+
+                                        //****** write post
+                                        writePost(postDto);
+
+                                        ///
+                                    }
+                                } else {
+                     //               Toast.makeText(getApplicationContext(), " in error null ", Toast.LENGTH_SHORT).show();
+                                }
+
+                            }
+
+                            @Override
+                            public void onFailure(Call<Object> call, Throwable t) {
+                                Logger.getLogger(MainActivity.class.getName()).log(Level.SEVERE, "Error occurred in censoring" + t);
+                            }
+                        });
+
+                    } else {
+
+                        dialogWait = new Dialog(view.getContext());
+
+                        dialogWait.setContentView(R.layout.dialog_wait);
+
+                        dialogWait.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                      //  dialog1.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+
+
+                        dialogWait.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                        dialogWait.getWindow().setGravity(Gravity.CENTER);
+                        dialogWait.show();
+                        writePost(postDto);
+                    }
+
+
+                }
+
+        });
+
+//        Intent intent = this.getIntent();
+//        if (getIntent().getExtras() != null) {
+//
+//            if (intent.hasExtra("origin")) {
+//                Toast.makeText(getApplicationContext(),"hellop",Toast.LENGTH_SHORT).show();
+//
+//                postDto= new PostDto();
+//                postDto.setDescription("ja gavala");
+//
+//            }
+//            if(intent.hasExtra("Bitmap")){
+//                postDto= (PostDto) getIntent().getSerializableExtra("PostDto");
+//            }
+//            if (intent.hasExtra("Bitmap")) {
+//                Bitmap bitmap = (Bitmap) intent.getParcelableExtra("Bitmap");
+//                post_image.setImageBitmap(bitmap);
+//                myImageViewText.setVisibility(TextView.GONE);
+//
+//            }
+
+//            if(postDto.getBitmap()!=null){
+//                Toast.makeText(getApplicationContext(),"In post dto bitmap",Toast.LENGTH_SHORT).show();
+//                post_image.setImageBitmap(postDto.getBitmap());
+//                myImageViewText.setVisibility(TextView.GONE);
+//            }
+//            if(postDto.getUri()!=null){
+//                Toast.makeText(getApplicationContext(),"In post dto uri",Toast.LENGTH_SHORT).show();
+//                Glide.with(this)
+//                        .load(postDto.getUri())
+//                        .listener(new RequestListener<Drawable>() {
+//                            @Override
+//                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+//                                Toast.makeText(getApplicationContext(),"h "+"Failed",Toast.LENGTH_SHORT).show();
+//                                return false;
+//                            }
+//
+//                            @Override
+//                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+//                                Toast.makeText(getApplicationContext(),"h "+"Success",Toast.LENGTH_SHORT).show();
+//                                return false;
+//                            }
+//                        })
+//                        .into(post_image);
+//
+//            }
+//            if(intent.hasExtra("Uri")){
+//                Bundle bundle = intent.getExtras();
+//                String Uri = bundle.getString("Uri");
+//
+//                myImageViewText.setVisibility(TextView.GONE);
+//                Glide.with(this)
+//                        .load(Uri)
+//                        .listener(new RequestListener<Drawable>() {
+//                            @Override
+//                            public boolean onLoadFailed(@Nullable GlideException e, Object model, Target<Drawable> target, boolean isFirstResource) {
+//                                Toast.makeText(getApplicationContext(),"h "+"Failed",Toast.LENGTH_SHORT).show();
+//                                return false;
+//                            }
+//
+//                            @Override
+//                            public boolean onResourceReady(Drawable resource, Object model, Target<Drawable> target, DataSource dataSource, boolean isFirstResource) {
+//                                Toast.makeText(getApplicationContext(),"h "+"Success",Toast.LENGTH_SHORT).show();
+//                                return false;
+//                            }
+//                        })
+//                        .into(post_image);
+//
+//
+//
+//            }
+//            if (intent.hasExtra("address")) {
+//                Bundle bundle = intent.getExtras();
+//                String address = bundle.getString("address");
+//                tvLocationDisplay.setText(address);
+//
+//            }
+//            if (intent.hasExtra("LocationDto")) {
+//
+//                locationDto= (LocationDto) getIntent().getSerializableExtra("LocationDto");
+//
+//            }
+
+
+     //   }
+
+
+
+
+    }
+
+    private Bitmap scaleBitmap(Bitmap bitmap) {
+// Get the width and height of the captured image
+        int imageWidth = bitmap.getWidth();
+        int imageHeight = bitmap.getHeight();
+
+// Get the width and height of the ImageView
+        int imageViewWidth = post_image.getWidth();
+       // int imageViewHeight = post_image.getHeight();
+        int imageViewHeight =  800;
+
+// Calculate the aspect ratio of the image and the ImageView
+        float imageAspectRatio = (float) imageWidth / (float) imageHeight;
+        float imageViewAspectRatio = (float) imageViewWidth / (float) imageViewHeight;
+
+// Calculate the scale factor to fit the image in the ImageView without stretching it
+        float scaleFactor;
+        if (imageAspectRatio > imageViewAspectRatio) {
+            // The image is wider than the ImageView, so scale to fit the width
+            scaleFactor = (float) imageViewWidth / (float) imageWidth;
+        }
+        else
+        {
+            // The image is taller than the ImageView, so scale to fit the height
+            scaleFactor = (float) imageViewHeight / (float) imageHeight;
+        }
+
+// Calculate the new width and height of the image after scaling
+        int newImageWidth = (int) (imageWidth * scaleFactor);
+        int newImageHeight = (int) (imageHeight * scaleFactor);
+
+// Create a new Bitmap object with the scaled size
+        Bitmap scaledBitmap = Bitmap.createScaledBitmap(bitmap, newImageWidth, newImageHeight, true);
+
+// Calculate the width and height of the side borders
+        int borderWidth = (imageViewWidth - newImageWidth) / 2;
+        int borderHeight = (imageViewHeight - newImageHeight) / 2;
+
+// Create a new Bitmap object with the side borders
+        Bitmap borderedBitmap = Bitmap.createBitmap(imageViewWidth, imageViewHeight, Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(borderedBitmap);
+        canvas.drawColor(Color.WHITE);
+        canvas.drawBitmap(scaledBitmap, borderWidth, borderHeight, null);
+
+        return borderedBitmap;
+       // return  scaledBitmap;
+//// Set the bordered Bitmap to the ImageView
+//        imageView.setImageBitmap(borderedBitmap);
+    }
+    private void saveToGallery(Bitmap bitmap) throws IOException {
+
+// Set the file name and path
+//        String fileName = UserDto.class.getName()+".jpg";
+        String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(new Date());
+        String fileName = ""+timeStamp+"image.png";
+
+        String filePath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/" +timeStamp+"/" +fileName;
+
+// Create the content values object and set the file attributes
+        ContentValues values = new ContentValues();
+        values.put(MediaStore.Images.Media.TITLE, fileName);
+        values.put(MediaStore.Images.Media.DISPLAY_NAME, fileName);
+        values.put(MediaStore.Images.Media.DESCRIPTION, "My Image");
+        values.put(MediaStore.Images.Media.MIME_TYPE, "image/png");
+        values.put(MediaStore.Images.Media.DATE_ADDED, System.currentTimeMillis());
+        values.put(MediaStore.Images.Media.DATE_TAKEN, System.currentTimeMillis());
+        values.put(MediaStore.Images.Media.DATA, filePath);
+
+// Insert the image into the media store
+        Uri uri = getContentResolver().insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+
+// Open the output stream and compress the image
+        OutputStream outputStream = getContentResolver().openOutputStream(uri);
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+
+// Close the output stream
+        outputStream.close();
+        System.out.println("Saved to Gallery");
+        Toast.makeText(getApplicationContext(),"Saved to Gallery!",Toast.LENGTH_SHORT).show();
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    public static Bitmap decodeSampledBitmapFromFile(String filePath, int reqWidth, int reqHeight) {
+        final BitmapFactory.Options options = new BitmapFactory.Options();
+        options.inJustDecodeBounds = true;
+        BitmapFactory.decodeFile(filePath, options);
+
+        options.inSampleSize = calculateInSampleSize(options, reqWidth, reqHeight);
+
+        options.inJustDecodeBounds = false;
+        return BitmapFactory.decodeFile(filePath, options);
+    }
+
+    public static int calculateInSampleSize(BitmapFactory.Options options, int reqWidth, int reqHeight) {
+        final int height = options.outHeight;
+        final int width = options.outWidth;
+        int inSampleSize = 1;
+
+        if (height > reqHeight || width > reqWidth) {
+            final int heightRatio = Math.round((float) height / (float) reqHeight);
+            final int widthRatio = Math.round((float) width / (float) reqWidth);
+            inSampleSize = heightRatio < widthRatio ? heightRatio : widthRatio;
+        }
+
+        return inSampleSize;
+    }
+
+    public Bitmap convertURL(String imgURL, int reqWidth, int reqHeight) {
+        Bitmap bitmap = null;
+        try {
+            bitmap = decodeSampledBitmapFromFile(imgURL, reqWidth, reqHeight);
+            // Get the orientation information from the image metadata
+            ExifInterface exif = new ExifInterface(imgURL);
+            int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+
+            // Apply the orientation to the bitmap
+            if (orientation != ExifInterface.ORIENTATION_UNDEFINED) {
+                Matrix matrix = new Matrix();
+                switch (orientation) {
+                    case ExifInterface.ORIENTATION_ROTATE_90:
+                        matrix.postRotate(90);
+                        break;
+                    case ExifInterface.ORIENTATION_ROTATE_180:
+                        matrix.postRotate(180);
+                        break;
+                    case ExifInterface.ORIENTATION_ROTATE_270:
+                        matrix.postRotate(270);
+                        break;
+                    default:
+                        break;
+                }
+                bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+            }
+
+            return bitmap;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return bitmap;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//    public Bitmap convertURL(String imgURL)
+//    {
+//        Bitmap bitmap = null;
+//        try {
+//            File file = new File(imgURL);
+//            FileInputStream stream = new FileInputStream(file);
+////            bitmap = BitmapFactory.decodeStream(stream);
+////            // Now you have the Bitmap image from the file
+//            // Get the orientation information from the image metadata
+//            ExifInterface exif = new ExifInterface(imgURL);
+//            int orientation = exif.getAttributeInt(ExifInterface.TAG_ORIENTATION, ExifInterface.ORIENTATION_UNDEFINED);
+//
+//            // Create a Bitmap image from the input stream and apply the orientation
+//            bitmap = BitmapFactory.decodeStream(stream);
+//            if (orientation != ExifInterface.ORIENTATION_UNDEFINED) {
+//                Matrix matrix = new Matrix();
+//                switch (orientation) {
+//                    case ExifInterface.ORIENTATION_ROTATE_90:
+//                        matrix.postRotate(90);
+//                        break;
+//                    case ExifInterface.ORIENTATION_ROTATE_180:
+//                        matrix.postRotate(180);
+//                        break;
+//                    case ExifInterface.ORIENTATION_ROTATE_270:
+//                        matrix.postRotate(270);
+//                        break;
+//                    default:
+//                        break;
+//                }
+//                bitmap = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
+////                int maxSizeBytes = 20 * 1024; // 20kb
+////                int quality = 90; // image quality percentage
+////                float scale = (float) Math.sqrt(maxSizeBytes / (float) bitmap.getByteCount());
+////                int newWidth = Math.round(bitmap.getWidth() * scale);
+////                int newHeight = Math.round(bitmap.getHeight() * scale);
+//
+//// Create a new scaled bitmap with the desired dimensions
+//       //         bitmap = Bitmap.createScaledBitmap(bitmap, newWidth, newHeight, true);
+//                Toast.makeText(getApplicationContext(), "Scaled bitmap size: " + bitmap.getByteCount() / 1024 + "KB", Toast.LENGTH_SHORT).show();
+//
+//                Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "Scaled bitmap size: " + bitmap.getByteCount() / 1024 + "KB");
+//
+//            }
+//
+//            return bitmap;
+//        } catch (FileNotFoundException e)
+//        {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        System.out.println("Null aayi pic");
+//        return bitmap;
+//    }
+
+    public void openGallery(View view){
+//        Intent intent = new Intent(CreatePost.this, OpenGallery.class);
+//        startActivity(intent);
+
+
+
+    }
+    public void selectTime(View view){
+
+        if(date==null){
+            Toast.makeText(getApplicationContext(),"Please select the date first ",Toast.LENGTH_SHORT).show();
+            return;
+
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            date = LocalDate.now();
+        }
+
+
+        // Launch Time Picker Dialog
+        TimePickerDialog timePickerDialog = new TimePickerDialog(this,
+                new TimePickerDialog.OnTimeSetListener() {
+
+                    @Override
+                    public void onTimeSet(TimePicker view, int hourOfDay,
+                                          int minute) {
+
+                        txtTime.setText(hourOfDay + ":" + minute);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            timestamp= date.atTime(hourOfDay,minute);
+                      //      Toast.makeText(getApplicationContext()," "+timestamp,Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }, 24, 60, false);
+        timePickerDialog.show();
+    }
+
+    public void selectDate(View view){
+
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            date = LocalDate.now();
+        }
+
+        final Calendar c = Calendar.getInstance();
+
+        // on below line we are getting
+        // our day, month and year.
+        int year = c.get(Calendar.YEAR);
+        int month = c.get(Calendar.MONTH);
+        int day = c.get(Calendar.DAY_OF_MONTH);
+
+        // on below line we are creating a variable for date picker dialog.
+        DatePickerDialog datePickerDialog = new DatePickerDialog(
+                // on below line we are passing context.
+                CreatePost.this,
+                new DatePickerDialog.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(DatePicker view, int year,
+                                          int monthOfYear, int dayOfMonth) {
+                        // on below line we are setting date to our text view.
+                        txtDate.setText(dayOfMonth + "-" + (monthOfYear + 1) + "-" + year);
+                        date = LocalDate.of(year, monthOfYear+1, dayOfMonth);
+
+                    }
+                },
+                // on below line we are passing year,
+                // month and day for selected date in our date picker.
+                year, month, day);
+        // at last we are calling show to
+        // display our date picker dialog.
+        datePickerDialog.show();
+
+    }
+
+//specialUploadApi.writePostWithoutImage(postDto)
+
+    public void writePost(PostDto postDto){
+
+        specialUploadApi.writePost(postDto)
+                .enqueue(new Callback<String>() {
+
+
+                    @Override
+                    public void onResponse(Call<String> call, Response<String> response) {
+                        if(response.isSuccessful()) {
+                            String message = response.body();
+                            Toast.makeText(CreatePost.this, "Uploaded!" , Toast.LENGTH_SHORT).show();
+
+
+
+                            postApi.getNotificationsForLatestPostByUser(postDto.getUserEmail()).enqueue(new Callback<Set<NotificationDto>>() {
+                                @Override
+                                public void onResponse(Call<Set<NotificationDto>> call, Response<Set<NotificationDto>> response) {
+                                    latestPostNoti = response.body();
+                                    //Toast.makeText(CreatePost.this, "GOT THE LATEST POST " + latestPost.getDescription(), Toast.LENGTH_SHORT).show();
+                                    Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "HERE is my NOTIFICATION SET"+latestPostNoti);
+
+                                    for(NotificationDto n :latestPostNoti) {
+                                        Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "HERE is my NOTIFICATION SET Individual"+n.getToUser().getUserId());
+                                   //     Toast.makeText(CreatePost.this, n.getToUser().getUserId() , Toast.LENGTH_SHORT).show();
+                                        //System.out.println("FCHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH"+n.getToUser().getUserId());
+                                    }
+                                    postApi.getLatestPostTaluka(postDto.getUserEmail()).enqueue(new Callback<TalukaDto>() {
+                                        @Override
+                                        public void onResponse(Call<TalukaDto> call, Response<TalukaDto> response) {
+                                            if (response.isSuccessful()) {
+                                                latestPostTaluka = response.body();
+                                           //     Toast.makeText(CreatePost.this, "GOT THE LATEST POST Taluka" + latestPostTaluka.getTalukaPolygon(), Toast.LENGTH_SHORT).show();
+                                                Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "GOT THE LATEST POST Taluka"+ latestPostTaluka.getTalukaPolygon());
+                                            }else{
+                                           //     Toast.makeText(CreatePost.this, "Failed to retrieve latest post Taluka", Toast.LENGTH_SHORT).show();
+                                                Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "Could not get taluka");
+                                            }
+
+                                            Intent intentToMap2 = new Intent(CreatePost.this, MapsActivity2.class);
+                                            //intentToMap2.putExtra("latestPostNoti",  latestPostNoti);
+                                            intentToMap2.putExtra("latestPostNoti",  (Serializable) latestPostNoti);
+                                            intentToMap2.putExtra("latestPostTaluka", latestPostTaluka);
+                                            intentToMap2.putExtra("address", address);
+                                            intentToMap2.putExtra("currPostLoc", postDto.getLocation());
+                                            Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "Going to Maps 2 "+address +"  "+postDto.getLocation().getLatitude()+"   "+latestPostNoti+"   "+ latestPostTaluka.getTalukaPolygon());
+                                            startActivity(intentToMap2);
+                                        }
+
+                                        @Override
+                                        public void onFailure(Call<TalukaDto> call, Throwable t) {
+                                    //        Toast.makeText(CreatePost.this, "Failed to retrieve latest post Taluka data", Toast.LENGTH_SHORT).show();
+                                        }
+                                    });
+
+                                }
+
+                                @Override
+                                public void onFailure(Call<Set<NotificationDto>> call, Throwable t) {
+                             //       Toast.makeText(CreatePost.this, "Failed to retrieve latest post notification data", Toast.LENGTH_SHORT).show();
+                                    Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "Could not get noti");
+                                }
+                            });
+
+
+
+
+                        } else {
+                           // Toast.makeText(CreatePost.this, "Response code: " + response.code()+ "Response: "+response.body(), Toast.LENGTH_SHORT).show();
+                        }
+                    }
+
+                    @Override
+                    public void onFailure(Call<String> call, Throwable t) {
+                        Toast.makeText(getApplicationContext(),  "Please follow app guidelines while posting"+t, Toast.LENGTH_SHORT).show();
+                        Logger.getLogger(CreatePost.class.getName()).log(Level.SEVERE, "Error occurred",t);
+                        dialogWait.dismiss();
+                        // editTextDescription.setText(t.toString());
+                    }
+                });
+
+
+    }
+
+
+
+    }
+

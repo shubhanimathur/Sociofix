@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:background="@drawable/border"
+    android:layout_marginHorizontal="30dp"
+
+    tools:context=".authentication.IndividualSignUp">
+    <TextView
+        android:id="@+id/signup_title"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5"
+        android:gravity="center"
+        android:text="SIGN UP"
+        android:background="@color/theme_pastel"
+        android:textColor="@color/light_white"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:layout_weight="70"
+        >
+
+        <TextView
+            android:id="@+id/emailAdd"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="Email Address"
+            android:layout_weight="10"
+            android:paddingHorizontal="4dp"
+            android:textColor="@color/my_dark_grey"
+            android:textSize="15dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="Enter your Email-ID"
+            android:textSize="13dp"
+            android:layout_weight="10"
+            android:background="@drawable/border"
+            />
+
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+
+            android:text="Name"
+            android:layout_weight="10"
+            android:paddingHorizontal="4dp"
+            android:textColor="@color/my_dark_grey"
+            android:textSize="15dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etName"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:ems="10"
+            android:hint="Enter your Name"
+            android:inputType="textPersonName"
+            android:textSize="13dp"
+            android:layout_weight="10"
+            android:background="@drawable/border" />
+        <TextView
+            android:id="@+id/Mobile"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="Mobile No."
+            android:layout_weight="10"
+            android:paddingHorizontal="4dp"
+            android:textColor="@color/my_dark_grey"
+            android:textSize="15dp"
+            android:gravity="center_vertical"
+            android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/etMobile"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:ems="10"
+            android:hint="Enter your Mobile"
+            android:inputType="number"
+            android:textSize="13dp"
+            android:layout_weight="10"
+            android:background="@drawable/border" />
+
+        <TextView
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="Password"
+            android:layout_weight="8"
+            android:paddingHorizontal="4dp"
+            android:textColor="@color/my_dark_grey"
+            android:textSize="15dp"
+            android:gravity="bottom"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etPasswordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="12"
+            app:passwordToggleEnabled="true"
+            android:hint="Enter Password"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etPass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:textSize="13dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/border"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+
+        <TextView
+            android:id="@+id/RepeatPass"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:text="Confirm Password"
+            android:layout_weight="8"
+            android:textColor="@color/my_dark_grey"
+            android:textSize="15dp"
+            android:gravity="bottom"
+            android:textStyle="bold" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etConfirmPasswordLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="12"
+            app:passwordToggleEnabled="true"
+            android:hint="Re-enter Password"
+            >
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etRepeatPass"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:inputType="textPassword"
+                android:textSize="13dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/border"
+                />
+        </com.google.android.material.textfield.TextInputLayout>
+        <TextView
+            android:id="@+id/blank3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="3"
+            android:text=""
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:layout_weight="25">
+        <Button
+            android:id="@+id/btnSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="28"
+            android:text="SIGN UP"
+            android:textSize="13dp"
+            android:theme="@style/MyButtonPastelStyle"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+        </TextView>
+        <CheckBox
+            android:id="@+id/cbAgree"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="15"
+            android:layout_gravity="center_vertical"
+           android:paddingLeft="0dp"
+            android:textSize="10dp"
+            android:buttonTint="@color/my_dark_grey"
+
+            android:paddingStart="5dp"
+
+            android:text="Agree to Terms and Conditions"
+            />
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+        </TextView>
+        <EditText
+            android:id="@+id/etConfCode"
+            android:layout_height="0dp"
+            android:layout_width="match_parent"
+            android:layout_weight="25"
+            android:ems="10"
+            android:hint="Confirmation Code"
+            android:textSize="15dp"
+            android:inputType="number"
+            android:background="@drawable/border"
+            />
+
+        <Button
+            android:id="@+id/btnVerify"
+            android:layout_width="match_parent"
+            android:theme="@style/MyButtonPastelStyle"
+            android:layout_height="0dp"
+            android:layout_weight="28"
+            android:text="Verify"
+            android:textStyle="bold"
+            />
+    </LinearLayout>
+
+</LinearLayout>

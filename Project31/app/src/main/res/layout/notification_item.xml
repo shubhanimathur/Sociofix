@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:elevation="8dp"
+    android:background="@drawable/border"
+    app:cardCornerRadius="1dp">
+
+    <LinearLayout
+        android:background="@drawable/border1"
+        android:id="@+id/notificationItemLL"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:weightSum="100"
+        android:layout_margin="10dp"
+        android:clickable="true"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="100"
+            android:orientation="horizontal"
+            android:paddingLeft="3dp"
+            android:weightSum="100">
+
+
+            <RelativeLayout
+
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="13"
+
+                >
+
+                <!-- Circular Image View  -->
+                <ImageView
+                    android:id="@+id/symbol"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                     android:padding="10dp"
+                    app:tint="@color/theme_pastel"
+                    app:srcCompat="@drawable/ic_person_search" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="85"
+                android:paddingLeft="10dp"
+                android:orientation="vertical"
+                android:weightSum="100">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="100"
+                            android:id="@+id/description"
+                            android:text="The organization CareUs We Foundation upvoted my post. Checking multiline view abcd thats how it looks"
+                            android:gravity="center_vertical"
+                            android:textSize="10dp"
+                            android:maxLines="2"
+                            android:ellipsize="end"
+                            android:lineSpacingExtra="5dp"
+                            android:scrollHorizontally="true"
+                          />
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>

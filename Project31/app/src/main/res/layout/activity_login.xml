@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    android:background="@drawable/collage2_transparent22"
+    tools:context=".authentication.Login">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="100"
+        android:orientation="vertical"
+        android:weightSum="100"
+        android:layout_marginHorizontal="30dp"
+        tools:context=".authentication.Login">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:id="@+id/Logo"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:gravity="bottom|center"
+                android:text="SocioFix"
+
+                android:textColor="@color/button_black"
+                android:textSize="40dp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tag_line"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:paddingTop="10dp"
+                android:gravity="center_horizontal"
+                android:text="It starts with us !"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="italic" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="35"
+            android:weightSum="100"
+            android:background="@drawable/border"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/emailAdd"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:text="Email Address"
+                android:paddingHorizontal="4dp"
+                android:textColor="@color/button_black"
+                android:textSize="15dp"
+
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/etEmailAddress"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:background="@drawable/border"
+                android:ems="10"
+                android:inputType="textEmailAddress"
+                android:hint="Enter your Email-ID"
+                android:textSize="13dp"
+
+                />
+
+            <TextView
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="16"
+                android:paddingHorizontal="4dp"
+                android:text="Password"
+                android:textColor="@color/button_black"
+                android:textSize="15dp"
+
+                android:gravity="bottom"
+                android:textStyle="bold" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/etPasswordLayout"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+
+                android:layout_weight="24"
+                app:passwordToggleEnabled="true"
+
+                android:hint="Enter your Password"
+                >
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/etPassword"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:inputType="textPassword"
+                    android:textSize="13dp"
+
+                    android:gravity="center_vertical"
+                    android:background="@drawable/border"
+                    />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/forgot_password_link"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:clickable="true"
+                android:gravity="right|center_vertical"
+                android:text="Forgot Password?  "
+                android:textColor="#2a6a9e"
+
+                android:textSize="13dp"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="8"
+            android:text="Login"
+            android:theme="@style/MyButton1Style"
+            android:textStyle="bold"
+            android:textSize="15dp"
+            android:layout_gravity="center"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="26"
+            android:weightSum="100"
+            android:paddingTop="10dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/blank"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+
+                android:textColor="#585757"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/or"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:text="Don't have a account ?"
+                android:textColor="@color/black"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center"/>
+
+            <TextView
+                android:id="@+id/signup_individual_link"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="30"
+                android:text="SIGN UP as INDIVIDUAL"
+                android:textColor="#2a6a9e"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center|bottom"
+                android:paddingBottom="10dp"
+                android:clickable="true"
+                android:onClick="individualSignup"
+                />
+
+            <TextView
+                android:id="@+id/signup_organization_link"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="20"
+                android:text="SIGN UP as ORGANIZATION"
+                android:textColor="#2a6a9e"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center|top"
+                android:clickable="true"
+                android:onClick="organizationSignup"
+                />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+</LinearLayout>

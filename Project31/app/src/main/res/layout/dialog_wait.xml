@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="7dp"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    >
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="15dp"
+        android:textColor="@color/my_dark_grey"
+        android:textStyle="bold"
+        android:hint="Please wait ...."/>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+
+        android:layout_gravity="center"
+        />
+    <TextView
+        android:id="@+id/textOfDialog"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="12dp"
+        android:lineSpacingExtra="5dp"
+        android:textColor="@color/my_dark_grey"
+        android:gravity="center"
+        android:text="Cheking contents ...\nSearching appropriate organizations ..."/>
+
+    <TextView
+        android:id="@+id/textOfDialogItalic"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="11dp"
+        android:lineSpacingExtra="5dp"
+        android:textStyle="italic"
+        android:textColor="@color/my_dark_grey"
+        android:gravity="center"
+        android:text="We hope the post gets the necessary help and attention :)"
+        />
+    <TextView
+        android:id="@+id/textOfDialogBold"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="15dp"
+        android:lineSpacingExtra="5dp"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textColor="@color/my_dark_grey"
+        android:hint="Thank you for posting!"/>
+
+</LinearLayout>

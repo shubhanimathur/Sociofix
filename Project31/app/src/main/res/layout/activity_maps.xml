@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="100"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:weightSum="100"
+        android:layout_margin="4dp"
+        android:orientation="horizontal"
+        android:paddingVertical="1.5dp">
+
+        <TextView
+            android:id="@+id/taluka_spinner"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="50"
+            android:hint="Enter Taluka"
+            android:layout_marginRight="5dp"
+            android:gravity="center"
+            android:background="@drawable/custom_spinner"
+            />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_weight="49"
+            android:layout_height="match_parent">
+            <TextView
+                android:id="@+id/area_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Area"
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"
+                android:background="@drawable/custom_spinner_area"/>
+            <ProgressBar
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:id="@id/areaProgressBar"
+                android:visibility="gone"
+                android:layout_centerInParent="true">
+
+            </ProgressBar>
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etLocality"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:hint="Enter locality"
+        android:layout_weight="7"/>
+
+
+
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:theme="@style/MyButtonPastelStyle"
+        android:text="Done" />
+
+
+<!--    android:layout_height="match_parent"-->
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/map"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+
+        android:layout_height="0dp"
+        android:layout_weight="72"
+    tools:context=".Utils.MapsActivity"
+        tools:layout="@layout/activity_maps"/>
+
+    <Button
+        android:id="@+id/btnSet"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:theme="@style/MyButtonPastelStyle"
+        android:text="Set" />
+</LinearLayout>
+

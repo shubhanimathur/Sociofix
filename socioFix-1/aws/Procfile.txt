@@ -1,0 +1,1 @@
+web: java -jar my-socioFixFinal.jar

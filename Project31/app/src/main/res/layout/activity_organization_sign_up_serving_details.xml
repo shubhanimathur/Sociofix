@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--    xmlns:tools="http://schemas.android.com/tools"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent"-->
+<!--    android:orientation="vertical"-->
+<!--    android:weightSum="100">-->
+<!--    &lt;!&ndash;    tools:context=".authentication.OrganizationSignUpServingDetails"&ndash;&gt;-->
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="12"-->
+<!--        android:weightSum="100"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:orientation="vertical"-->
+
+<!--        >-->
+<!--        <TextView-->
+<!--            android:id="@+id/tvSectorTitle"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="40"-->
+<!--            android:textSize="15dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:text="Sector" />-->
+
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/sector_tv"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="60"-->
+<!--            android:background="@drawable/custom_spinner"/>-->
+<!--        &lt;!&ndash;            android:background="@drawable/custom_spinner"&ndash;&gt;-->
+
+
+
+<!--    </LinearLayout>-->
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="19"-->
+<!--        android:weightSum="100"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:orientation="vertical"-->
+
+<!--        >-->
+<!--        <TextView-->
+<!--            android:id="@+id/tvSectorTitleSpinner"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="13"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center"-->
+
+
+<!--            android:text="Your selected serving sectors "-->
+<!--            android:textSize="11dp"/>-->
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:paddingTop="10dp"-->
+<!--            android:paddingBottom="10dp"-->
+<!--            android:layout_weight="87">-->
+
+<!--            <com.nex3z.flowlayout.FlowLayout-->
+<!--                xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="8dp"-->
+<!--                android:paddingRight="8dp"-->
+<!--                app:flChildSpacing="8dp"-->
+<!--                app:flChildSpacingForLastRow="align"-->
+<!--                app:lineSpacing="4dp"-->
+<!--                app:flRowSpacing="3dp"-->
+<!--                android:id="@+id/flowLayoutSectors">-->
+
+<!--            </com.nex3z.flowlayout.FlowLayout>-->
+
+<!--        </ScrollView>-->
+
+<!--    </LinearLayout>-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="12"-->
+<!--        android:weightSum="100"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:orientation="vertical"-->
+
+<!--        >-->
+<!--        <TextView-->
+<!--            android:id="@+id/textViewTaluka"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="40"-->
+<!--            android:textSize="15dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:text="Taluka Serving" />-->
+
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/taluka_spinner"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="60"-->
+<!--            android:background="@drawable/custom_spinner_taluka"/>-->
+<!--        &lt;!&ndash;            android:background="@drawable/custom_spinner"&ndash;&gt;-->
+
+
+
+<!--    </LinearLayout>-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="12"-->
+<!--        android:weightSum="100"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:orientation="vertical"-->
+
+<!--        >-->
+<!--        <TextView-->
+<!--            android:id="@+id/textViewArea"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="40"-->
+<!--            android:textSize="15dp"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center_vertical"-->
+<!--            android:text="Area Serving " />-->
+
+
+
+<!--        <TextView-->
+<!--            android:id="@+id/tvArea"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_weight="60"-->
+<!--            android:background="@drawable/custom_spinner_area"/>-->
+<!--        &lt;!&ndash;            android:background="@drawable/custom_spinner"&ndash;&gt;-->
+
+
+
+<!--    </LinearLayout>-->
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="7"-->
+<!--        android:weightSum="100"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:orientation="horizontal">-->
+
+
+<!--        <Button-->
+<!--            android:id="@+id/btnAdd"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="50"-->
+<!--            android:text="Add"-->
+<!--            android:textStyle="bold"-->
+<!--            />-->
+<!--        <Button-->
+<!--            android:id="@+id/btnReset"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:layout_weight="50"-->
+<!--            android:text="Reset"-->
+<!--            android:textStyle="bold"-->
+<!--            />-->
+
+<!--    </LinearLayout>-->
+
+
+
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="28"-->
+<!--        android:weightSum="100"-->
+<!--        android:layout_margin="4dp"-->
+<!--        android:orientation="vertical"-->
+
+<!--        >-->
+<!--        <TextView-->
+<!--            android:id="@+id/tvLocationTitle"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="10"-->
+<!--            android:textStyle="bold"-->
+<!--            android:gravity="center"-->
+<!--            android:text="Your selected serving locations "-->
+<!--            android:textSize="11dp"/>-->
+<!--        <ScrollView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="0dp"-->
+<!--            android:layout_weight="90">-->
+
+<!--            <com.nex3z.flowlayout.FlowLayout-->
+<!--                xmlns:app="http://schemas.android.com/apk/res-auto"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="8dp"-->
+<!--                android:paddingRight="8dp"-->
+<!--                app:flChildSpacing="8dp"-->
+<!--                app:flChildSpacingForLastRow="align"-->
+<!--                app:lineSpacing="4dp"-->
+<!--                app:flRowSpacing="3dp"-->
+<!--                android:id="@+id/flowLayoutLocations">-->
+
+<!--            </com.nex3z.flowlayout.FlowLayout>-->
+
+<!--        </ScrollView>-->
+
+<!--    </LinearLayout>-->
+<!--    <Button-->
+<!--        android:id="@+id/btnNext"-->
+<!--        android:layout_width="200dp"-->
+<!--        android:layout_height="0dp"-->
+<!--        android:layout_weight="10"-->
+<!--        android:text="Next"-->
+<!--        android:textStyle="bold"-->
+<!--        android:layout_gravity="center"/>-->
+<!--</LinearLayout>-->
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+
+    tools:context=".authentication.OrganizationSignUpServingDetails">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:gravity="center"
+        android:text="Serving Details"
+        android:background="@color/theme_pastel"
+        android:paddingBottom="15dp"
+        android:textColor="@color/light_white"
+        android:textSize="20dp"
+
+        android:textStyle="bold"
+        android:layout_weight="12">
+    </TextView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="35"
+        android:weightSum="100"
+        android:paddingHorizontal="30dp"
+        android:layout_margin="4dp"
+        android:orientation="vertical"
+
+
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+        </TextView>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="40"
+            android:weightSum="100"
+            android:layout_margin="4dp"
+            android:orientation="vertical"
+
+            android:background="@drawable/border"
+
+            >
+            <TextView
+                android:id="@+id/tvSectorTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="40"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:text="Sector" />
+
+
+
+            <TextView
+                android:id="@+id/sector_tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="60"
+                android:hint="Sector"
+                android:gravity="center_vertical"
+                android:paddingLeft="10dp"
+                android:background="@drawable/custom_spinner"/>
+            <!--            android:background="@drawable/custom_spinner"-->
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="60"
+            android:weightSum="100"
+            android:layout_margin="4dp"
+            android:orientation="vertical"
+            android:background="@drawable/border"
+
+            >
+            <!--        android:gravity="center"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="13"
+                android:weightSum="100"
+                android:layout_margin="4dp"
+                android:orientation="horizontal"
+
+
+                >
+                <TextView
+                    android:id="@+id/tvSectorTitleSpinner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="90"
+                    android:textStyle="bold"
+                    android:text="Your selected serving sectors "
+
+
+
+                    android:textSize="11dp"/>
+                <TextView
+                    android:id="@+id/clear_sector"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:drawableEnd="@drawable/ic_cancel"
+                    />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/blank"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/border1"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_weight="80">
+
+                                        <com.nex3z.flowlayout.FlowLayout
+                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:paddingLeft="8dp"
+                                            android:paddingRight="8dp"
+                                            app:flChildSpacing="8dp"
+                                            app:flChildSpacingForLastRow="align"
+                                            app:lineSpacing="4dp"
+                                            app:flRowSpacing="3dp"
+                                            android:id="@+id/flowLayoutSectors">
+
+                                        </com.nex3z.flowlayout.FlowLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <!--    **********************  location **************-->
+
+    <LinearLayout
+        android:paddingHorizontal="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="45"
+        android:weightSum="100"
+        android:layout_margin="4dp"
+        android:orientation="vertical"
+
+
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="30"
+            android:weightSum="100"
+            android:layout_margin="4dp"
+            android:orientation="vertical"
+            android:background="@drawable/border"
+
+            >
+            <TextView
+                android:id="@+id/tvLocationnTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="15"
+                android:textSize="15dp"
+                android:textStyle="bold"
+                android:gravity="center_vertical"
+                android:paddingLeft="6dp"
+                android:text="Location" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="85"
+                android:weightSum="100"
+
+                android:orientation="horizontal"
+
+                >
+                <TextView
+                    android:id="@+id/taluka_spinner"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="49"
+                    android:hint="Taluka"
+                    android:paddingLeft="10dp"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/custom_spinner_taluka"/>
+                <!--            android:background="@drawable/custom_spinner"-->
+
+                <TextView
+                    android:id="@+id/blank1"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2" />
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="49"
+                    android:layout_height="match_parent">
+                    <TextView
+                        android:id="@+id/tvArea"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Area"
+                        android:paddingLeft="10dp"
+                        android:gravity="center_vertical"
+                        android:background="@drawable/custom_spinner_area"/>
+                    <ProgressBar
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:id="@+id/areaProgressBar"
+                        android:visibility="gone"
+                        android:layout_centerInParent="true">
+
+                    </ProgressBar>
+
+                </RelativeLayout>
+
+
+                <!--            android:background="@drawable/custom_spinner"-->
+
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="17"
+            android:text="Add"
+            android:theme="@style/MyButtonPastelStyle"
+            android:layout_marginLeft="2dp"
+            android:layout_marginRight="2dp"
+            android:textStyle="bold"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="53"
+            android:weightSum="100"
+            android:layout_margin="4dp"
+            android:orientation="vertical"
+            android:background="@drawable/border"
+
+            >
+            <!--        android:gravity="center"-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="13"
+                android:weightSum="100"
+                android:layout_margin="4dp"
+                android:orientation="horizontal"
+
+
+                >
+                <TextView
+                    android:id="@+id/tvSelectedLocationTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="90"
+                    android:textStyle="bold"
+                    android:text="Your selected serving location "
+
+
+
+                    android:textSize="11dp"/>
+                <TextView
+                    android:id="@+id/clear_location"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="10"
+                    android:drawableEnd="@drawable/ic_cancel"
+                    />
+            </LinearLayout>
+            <TextView
+                android:id="@+id/blank3"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="7" />
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:background="@drawable/border1"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_weight="80">
+
+                                                        <com.nex3z.flowlayout.FlowLayout
+                                                            xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                            android:layout_width="match_parent"
+                                                            android:layout_height="wrap_content"
+                                                            android:paddingLeft="8dp"
+                                                            android:paddingRight="8dp"
+                                                            app:flChildSpacing="8dp"
+                                                            app:flChildSpacingForLastRow="align"
+                                                            app:lineSpacing="4dp"
+                                                            app:flRowSpacing="3dp"
+                                                            android:id="@+id/flowLayoutLocations">
+
+                                                        </com.nex3z.flowlayout.FlowLayout>
+
+            </ScrollView>
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    <!--   *************************************************** -->
+
+
+
+    <Button
+
+        android:id="@+id/btnNext"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7"
+        android:text="Next"
+        android:theme="@style/MyButtonPastelStyle"
+        android:textStyle="bold"
+        android:layout_marginLeft="32dp"
+        android:layout_marginRight="32dp"
+
+        android:layout_gravity="center"/>
+
+
+
+
+</LinearLayout>
+
+
+
+
+
+    <!--<Button
+            android:id="@+id/btnNext"
+            android:layout_width="200dp"
+            android:layout_height="0dp"
+            android:layout_weight="10"
+            android:text="Next"
+            android:textStyle="bold"
+            android:layout_gravity="center"/>-->

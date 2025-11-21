@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:id="@+id/faq_ll"
+    android:background="@drawable/faq_pets2new15"
+    tools:context=".settings.FAQ">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp">
+
+
+        <TextView
+            android:id="@+id/faq_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="8dp"
+            android:gravity="center"
+            android:text="FAQs"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/for_users"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:text="Here are a few Frequently Asked Questions -"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textCustomizedFeed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="20dp"
+                        android:text="1. Why is my feed customized according to Pune City instead of my current location?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textCustomizedFeed1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:text="Our app is designed to provide users with a personalized experience based on their location. However, currently we only serve in Pune District. If you are located outside of Pune District, your feed will automatically be customized according to Pune City taluka by default."
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textCustomizedFeed2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:text="If you are located in any other taluka of Pune district and are still getting the feed customized according to Pune City, please ensure that your VPN is not affecting your location settings."
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+
+                        />
+
+
+                    <TextView
+                        android:id="@+id/textNoPost"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="20dp"
+                        android:text="2. Why am I not being able to post?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textNoPost1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:text="There could be a couple of reasons why you are not able to post. Firstly, if you are trying to post from a location outside of Pune District, you won't be able to post since our app currently only serves in Pune District."
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textNoPost2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:text="Secondly, our app has a built-in safety feature that automatically checks all posts for explicit or unsafe content, including images. If your post contains such content, it won't be allowed to be posted to keep the app safe and family-friendly for everyone. To ensure that your post can be published, make sure to avoid any explicit or unsafe content and ensure that you are posting from within Pune District."
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textExplicitImages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="20dp"
+                        android:text="3. What kind of images are considered as explicit/unsafe images?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textExplicitImages1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:text="Images that contain Nudity, Graphic Male Nudity, Graphic Female Nudity, Sexual Activity, Illustrated Explicit Nudity,Adult Toys, Sexual Situations, Weapon Violence, Emaciated Bodies, Hanging, etc are considered explicit/unsafe."
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textBlur"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="20dp"
+                        android:text="4. Why is my post's image blurred?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textBlur1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:text="Our app aims to provide a safe and family-friendly environment for all users, which includes protecting them from sensitive content. If your post contains an image that is deemed sensitive or inappropriate, it will be automatically blurred with an eye button displayed on top which on tapping will be display the orginal image. This is done to ensure that all users can enjoy our app without encountering any uncomfortable or offensive content."
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textSensitiveImages"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="20dp"
+                        android:text="5. What kind of images are considered as sensitive images?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textSensitiveImages1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:text="The images that contain Revealing Clothes, Air Crash, Explosions And Blasts, Nazi Party, White Supremacy, Extremist, Partial Nudity, Graphic Violence, Physical Violence, Self Injury, Drug Use, Corpses,etc are considered sensitive."
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textContentFiltering"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="20dp"
+                        android:text="6. Why are some of the words of my post's description replaced with asterisks?"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textContentFiltering1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:lineSpacingExtra="1.5pt"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:text="Our app has a built-in safety feature that automatically checks the text in post descriptions for inappropriate or unsafe words. If such words are detected, they are replaced with asterisks to ensure a safe and comfortable environment for all users. So if some of your words are being replaced, it's likely because they fall into this category. To avoid this, we recommend using appropriate language and avoiding any explicit or offensive content in your post descriptions."
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="20dp"
+
+                    >
+                    <TextView
+                        android:id="@+id/Contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Contact Us"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/black"
+                        android:text="For any further questions Email us at - sociofix2022@gmail.com"
+                        android:textSize="15dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:gravity="center"
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+
+    </LinearLayout>
+</LinearLayout>
+
+
+
+

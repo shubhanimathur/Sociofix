@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginVertical="10dp"
+    android:layout_marginHorizontal="7dp"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="@android:color/white"
+    >
+
+    <TextView
+        android:id="@+id/heading"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+       android:gravity="center"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="15dp"
+        android:textColor="@color/my_dark_grey"
+        android:textStyle="bold"
+        android:hint="Head Office Location"/>
+
+
+    <EditText
+        android:id="@+id/officeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="15dp"
+        android:hint="Office"/>
+
+    <EditText
+        android:id="@+id/localityEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="15dp"
+        android:hint="Locality"/>
+
+    <EditText
+        android:id="@+id/talukaEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="15dp"
+        android:hint="Taluka"/>
+
+    <EditText
+        android:id="@+id/districtEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="15dp"
+        android:hint="District"/>
+
+    <EditText
+        android:id="@+id/stateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="15dp"
+        android:hint="State"/>
+
+    <EditText
+        android:id="@+id/pincodeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="10dp"
+        android:layout_marginVertical="10dp"
+        android:textSize="15dp"
+        android:hint="Pincode"/>
+
+    <Button
+        android:id="@+id/btnDone"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+android:theme="@style/MyButtonPastelStyle"
+        android:layout_marginVertical="10dp"
+        android:text="Done" />
+
+</LinearLayout>

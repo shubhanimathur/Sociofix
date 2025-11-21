@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>3.0.1</version>
+		<relativePath/> <!-- lookup parent from repository -->
+	</parent>
+	<groupId>com.socioFix</groupId>
+	<artifactId>socioFix-1</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>socioFix-1</name>
+	<description>Demo project for Spring Boot</description>
+	<properties>
+		<java.version>17</java.version>
+	</properties>
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+
+<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+
+<dependency>
+<groupId>com.google.code.gson</groupId>
+<artifactId>gson</artifactId>
+<version>2.10.1</version>
+</dependency>
+<!-- https://mvnrepository.com/artifact/org.json/json -->
+<dependency>
+<groupId>org.json</groupId>
+<artifactId>json</artifactId>
+<version>20220924</version>
+</dependency>
+
+
+
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk-s3</artifactId>
+    <version>1.12.69</version>
+</dependency>
+
+
+
+
+
+
+
+
+<dependency>
+  <groupId>org.modelmapper</groupId>
+  <artifactId>modelmapper</artifactId>
+  <version>2.3.7</version>
+</dependency>
+
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<optional>true</optional>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		
+				<dependency>
+    <groupId>org.postgresql</groupId>
+    <artifactId>postgresql</artifactId>
+    <version>42.5.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.locationtech.jts/jts-core -->
+<dependency>
+    <groupId>org.locationtech.jts</groupId>
+    <artifactId>jts-core</artifactId>
+    <version>1.19.0</version>
+</dependency>
+
+<dependency>
+    <groupId>com.amazonaws</groupId>
+    <artifactId>aws-java-sdk-rekognition</artifactId>
+    <version>1.12.435</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.locationtech.jts/jts-core -->
+<dependency>
+    <groupId>org.locationtech.jts</groupId>
+    <artifactId>jts-core</artifactId>
+    <version>1.19.0</version>
+</dependency>
+<dependency>
+    <groupId>software.amazon.awssdk</groupId>
+    <artifactId>aws-sdk-java</artifactId>
+    <version>2.17.19</version>
+</dependency>
+
+	</dependencies>
+
+	<build>
+	
+    <finalName>my-socioFixFinal</finalName>
+		<plugins>
+			
+			<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-jar-plugin</artifactId>
+  <version>3.2.0</version>
+  <configuration>
+    <archive>
+      <manifest>
+        <mainClass>com.socioFix.SocioFix1Application</mainClass>
+      </manifest>
+    </archive>
+  </configuration>
+</plugin>
+
+<!--			
+			<plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-antrun-plugin</artifactId>
+   <version>3.0.0</version>
+  <executions>
+    <execution>
+      <id>prepare</id>
+      <phase>package</phase>
+      <configuration>
+        <target>
+ 
+          <property name="buildName" value="${project.build.finalName}.jar"/>
+ 
+          <copy todir="${project.build.directory}/aws-build/" overwrite="false">
+            <fileset file="${project.build.directory}/${project.build.finalName}.jar"/>
+            <fileset dir="./aws" />
+          </copy>
+ 
+ 
+          <zip compress="false" destfile="${project.build.directory}/aws-build/app-to-deploy.jar" basedir="${project.build.directory}/aws-build"/>
+ 
+        </target>
+      </configuration>
+      <goals>
+        <goal>run</goal>
+      </goals>
+    </execution>
+  </executions>
+</plugin>
+			-->
+			
+			
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

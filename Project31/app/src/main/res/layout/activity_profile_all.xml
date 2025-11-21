@@ -1,0 +1,372 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".profile.ProfileAll"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:weightSum="100"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:weightSum="100"
+            android:orientation="horizontal"
+            android:paddingHorizontal="15dp"
+            android:background="@color/theme_pastel"
+            android:layout_weight="7"
+            android:layout_height="0dp">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="90"
+                android:text="SocioFix"
+                android:fontFamily="@font/permanent_marker"
+                android:paddingLeft="10dp"
+                android:textColor="@color/light_white"
+                android:textSize="20dp"
+                android:gravity="center_vertical"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:id="@+id/settings"
+                android:drawableTint="@color/light_white"
+                android:layout_gravity="center"
+                android:drawableStart="@drawable/ic_baseline_settings_24"
+                android:layout_weight="10">
+
+            </TextView>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="2dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#DBDBDB"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+
+                >
+            </LinearLayout>
+        </LinearLayout>
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/idNestedSV"
+            android:layout_weight="87"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            tools:context=".homePage.HomePage">
+
+            <!--linear layout for displaying
+                our recycler view-->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="85dp"
+                    android:orientation="horizontal"
+                    android:weightSum="100"
+
+                    android:layout_marginRight="15dp"
+                    android:layout_marginLeft="20dp"
+
+                    >
+
+
+                    <RelativeLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="21"
+
+                        >
+
+                        <!-- Circular Image View  -->
+                        <de.hdodenhof.circleimageview.CircleImageView
+
+                            android:id="@+id/profile"
+                            android:layout_width="85dp"
+                            android:layout_height="85dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/img_3"
+                            app:civ_border_color="@color/theme_pastel"
+                            app:civ_border_width="2dp" />
+
+                    </RelativeLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="75"
+                        android:orientation="vertical"
+                        android:weightSum="100">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="50"
+                            android:orientation="horizontal"
+                            android:weightSum="100">
+
+                            <TextView
+                                android:id="@+id/postsNo"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="33"
+                                android:drawableTint="#7D7D7D"
+                                android:text="20"
+                                android:gravity="center_vertical|right"
+                                android:drawablePadding="3dp"
+                                android:drawableEnd="@drawable/ic_post"
+                                android:textColor="@color/my_dark_grey"
+                                android:textSize="13dp"
+                                />
+
+
+
+                            <TextView
+                                android:id="@+id/orgNo"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="33"
+                                android:drawableTint="#7D7D7D"
+                                android:text="15"
+                                android:gravity="center_vertical|right"
+                                android:drawablePadding="4dp"
+                                android:drawableEnd="@drawable/ic_baseline_group_add_24"
+                                android:textColor="@color/my_dark_grey"
+                                android:textSize="13dp"
+                                />
+
+                            <TextView
+                                android:id="@+id/volunteerNo"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="33"
+                                android:drawableTint="#7D7D7D"
+                                android:hint="99"
+                                android:gravity="center_vertical|right"
+                                android:drawablePadding="4dp"
+                                android:drawableEnd="@drawable/ic_volunteer"
+                                android:textColor="@color/my_dark_grey"
+                                android:textSize="13dp"
+                                />
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="30"
+                            android:orientation="horizontal"
+                            android:weightSum="100">
+
+                            <TextView
+                                android:id="@+id/postsTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="33"
+                                android:drawableTint="#7D7D7D"
+                                android:textStyle="bold"
+                                android:gravity="center_vertical|right"
+                                android:text="Posts"
+                                android:textColor="@color/my_dark_grey"
+                                android:textSize="12dp" />
+
+
+                            <TextView
+                                android:id="@+id/organizationTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="40"
+                                android:gravity="center_vertical|right"
+                                android:textStyle="bold"
+                                android:text="Organizations +"
+
+
+                                android:textColor="@color/my_dark_grey"
+                                android:textSize="12dp" />
+
+                            <TextView
+                                android:id="@+id/volunteerTitle"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="26"
+                                android:gravity="center_vertical|right"
+                                android:text="Volunteer"
+                                android:textColor="@color/my_dark_grey"
+
+
+                                android:textSize="12dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+
+                </LinearLayout>
+                <!--recycler view for displaying our list of data
+                    and we are making nested scroll for our
+                    recycler view as false-->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginHorizontal="15dp"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingVertical="10dp"
+                        android:hint="Name"
+                        android:lineSpacingExtra="3dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="5dp"
+                        android:textStyle="bold"
+                        android:textColor="@color/my_dark_grey"
+                        android:textSize="15dp"
+                        />
+
+                    <TextView
+                        android:id="@+id/userId"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="18"
+                        android:hint="This is my user id"
+                        android:lineSpacingExtra="3dp"
+                        android:gravity="center_vertical"
+                        android:paddingLeft="20dp"
+                        android:paddingRight="5dp"
+                        android:paddingVertical="2dp"
+                        android:textColor="#979292"
+                        android:textSize="11dp"
+                        />
+                    <!--                    android:hint="To make the world a better place to live in"-->
+                    <TextView
+                        android:id="@+id/bio"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+
+                        android:lineSpacingExtra="3dp"
+                        android:gravity="center_vertical"
+
+                        android:paddingLeft="20dp"
+                        android:paddingRight="5dp"
+                        android:paddingTop="6dp"
+                        android:paddingBottom="12dp"
+                        android:textColor="@color/my_dark_grey"
+                        android:textSize="11dp"
+                        />
+
+
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="2dp"
+                    android:layout_marginTop="2dp"
+
+                    android:orientation="vertical">
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#DBDBDB"/>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="5dp"
+
+                        >
+                    </LinearLayout>
+                </LinearLayout>
+
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginHorizontal="15dp"
+                    app:tabGravity="fill"
+                    app:tabTextColor="#7D7D7D"
+                    app:tabTextAppearance="@style/CustomTabTextAppearance"
+                    app:tabMode="fixed">
+
+                    <com.google.android.material.tabs.TabItem
+                        android:id="@+id/tabPosts"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Posts"
+                        app:textAllCaps="false"
+                        />
+
+
+
+                </com.google.android.material.tabs.TabLayout>
+
+                <!--we are adding progress bar
+                    for the purpose of loading-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/idRVPosts"
+                    android:layout_marginHorizontal="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:nestedScrollingEnabled="false"
+                    tools:listitem="@layout/post_item1" />
+
+                <ProgressBar
+                    android:id="@+id/idPBLoading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+
+
+
+            </LinearLayout>
+
+
+
+        </androidx.core.widget.NestedScrollView>
+
+        <include
+            layout="@layout/bottom_navigation"
+            android:id="@+id/bottom_navigation"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="5"
+            />
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

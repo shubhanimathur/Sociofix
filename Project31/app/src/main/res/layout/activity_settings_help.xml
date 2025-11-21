@@ -1,0 +1,864 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/babies_collage15"
+    tools:context=".settings.SettingsHelp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="20dp"
+        >
+
+
+        <TextView
+            android:id="@+id/help_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingTop="8dp"
+            android:text="Help"
+            android:textColor="@color/black"
+            android:textSize="15dp"
+            android:textStyle="bold" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/for_users"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:text="For Individuals - "
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textCreatingPosts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:text="1. Creating Posts:"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textCreatingPosts1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To create a post, click on the &quot;Create Post&quot; button on the home screen. Fill out the details of your post, including the description, location, and sector. You can also add a photo to your post"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+
+
+                    <TextView
+                        android:id="@+id/textHelpingOtherIndividuals"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="2. Helping Other Individuals:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textHelpingOtherIndividuals1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To help other individuals in your community, click on the help button of the post, fill in the necessary details regarding how you can help and then offer help."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textHelpingOtherIndividuals2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="Wait for the post’s author to get in touch with you once you have offered help."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textFindingNearbyOrganizations"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="3. Finding Nearby Organizations:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textFindingNearbyOrganizations1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="Once you create a post and it gets successfully posted you would be redirected to a map’s page which will show you all the organizations that fall  within 5km of the issue's location."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textFindingNearbyOrganizations2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="You can tap on the organization's icon to view their name and contact details in case needed."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textNotifications"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:text="4. Notifications:"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textNotifications1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To receive activity notifications, make sure your notification settings are enabled in the app."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/for_organizations"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:text="For Organizations - "
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textCreatingDrives"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="1. Creating Drives:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textCreatingDrives1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To create a drive, click on the &quot;Create Drive&quot; button on the home screen. Fill out the details of your drive, including the description, location, and sector. You can also add a photo to your drive."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+
+
+                    <TextView
+                        android:id="@+id/textHelpRequests"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="2. Help Requests:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textHelpRequests1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To receive help requests from Individuals, make sure your notification settings are enabled in the app."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textFollowers"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="3. Followers:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textFollowers1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To get notified when someone starts following you make sure that your notification settings are enabled"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textFollowers2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To view the users who are following your organization, click on your organization's profile and look for the &quot;Followers&quot; section."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textUpdatingPosts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="4. Updating Posts:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textUpdatingPosts1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="Once a particular issue is accepted and then solved, you can change the posts as &quot;Solved&quot; to let the individuals know that their issue has been resolved."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+
+                    >
+
+                    <TextView
+                        android:id="@+id/for_both"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:text="For Both Individuals and Organizations - "
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textSortingandFiltering"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="1. Sorting and Filtering:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textSortingandFiltering1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To sort posts and drives by popularity or recency, click on the &quot;Sort By&quot; button and select your preferred option"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textSortingandFiltering2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To filter posts and drives by location or sector, click on the &quot;Filter&quot; button and select your preferred option."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+
+                    <TextView
+                        android:id="@+id/textTalukaView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:text="2. View Locality Activities:"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textTalukaView1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To view what's happening in your taluka, click on the &quot;Locality&quot; tab on the home screen."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textOrganizationSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="3. Organization Search:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textOrganizationSearch1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To search for organizations visit drive's page, go to the &quot;Following&quot; tab and click on &quot;Follow Organization&quot;. You can then search for the organizations you desire by filtering on the basis of sector or location they serve in or by simply entering their Name or Email ID"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textFollowOrganizations"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="4. Follow Organizations:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textFollowOrganizations1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To follow an organization, click on their profile and click the &quot;Follow&quot; button."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textUpvotingandCommenting"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="5. Upvoting and Commenting:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textUpvotingandCommenting1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To upvote a post or drive, click on the &quot;Upvote&quot; button."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textUpvotingandCommenting2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To comment on a post or drive, click on the &quot;Comment&quot; button and type your comment in the box."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textNotificationsNew"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="6. Notifications:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textNotificationsNew1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To receive notifications when the organizations you follow post updates, make sure your notification settings are enabled in the app."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textNotificationsNew2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To receive reminders of upcoming drives, make sure your notification settings are enabled in the app."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textCustomizedFeed"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="7. Customized Feed:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textCustomizedFeed1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To get a customized feed based on your location, make sure your location settings are enabled in the app."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textProfileEditing"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="8. Profile Editing:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textProfileEditing1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To edit your profile, click on the profile icon in the bottom right-hand corner of the home screen. From there, you can edit your name, profile picture, and other details."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textIssueTrackingNew"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="9. Issue Tracking:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textIssueTrackingNew1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To view the number of accepted and solved issues by an organization, click on their profile and look for the &quot;Accepted&quot; and &quot;Solved&quot; numbers."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+                    <TextView
+                        android:id="@+id/textSavingPosts"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/courgette"
+                        android:gravity="center_vertical"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:text="10. Saving Posts:"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textSavingPosts1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To save a post, click on the &quot;Save&quot; button on the post's page."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textSavingDrives"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="11. Saving Drives:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textSavingDrives1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To save a drive, click on the &quot;Save&quot; button on the drive's page."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textDriveFollowingOrganizations"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="12. Following Organization's Drives:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textDriveFollowingOrganizations1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To get the drives created by the organizations you follow go to the &quot;Following&quot; tab on the drive's page."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textVolunteeringforDrives"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="13. Volunteering for Drives:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textVolunteeringforDrives1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To volunteer for a drive, click on the drive you're interested in and click the &quot;Volunteer&quot; button."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewProfiles"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/black"
+                        android:fontFamily="@font/courgette"
+                        android:text="14. View Profiles:"
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+                        android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewProfiles1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To view an individual's profile you can click on the post created by them followed by clicking on their profile pic."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/textViewProfiles2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="20dp"
+                        android:paddingTop="5dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:textColor="@color/black"
+                        android:text="To view an organization's profile you can click on the drive created by them followed by clicking on their profile pic. Alternatively you can also view a particular organization's profile bu searching for them as mentioned earlier."
+                        android:textSize="15dp"
+                        android:gravity="center_vertical"
+
+                        />
+
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="20dp"
+
+                    >
+                    <TextView
+                        android:id="@+id/Contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Contact Us"
+                        android:gravity="center"
+                        android:paddingHorizontal="4dp"
+                        android:textColor="@color/black"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/textContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingHorizontal="4dp"
+                        android:paddingTop="5dp"
+                        android:textColor="@color/black"
+                        android:text="Email us at - sociofix2022@gmail.com"
+                        android:textSize="15dp"
+                        android:lineSpacingExtra="1.5pt"
+                        android:gravity="center"
+                        />
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+        </ScrollView>
+    </LinearLayout>
+</LinearLayout>
+
+
+
+
